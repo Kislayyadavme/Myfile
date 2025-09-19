@@ -1,0 +1,36 @@
+name: Deploy Telegram Bot
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run bot
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          SESSION_NAME: ${{ secrets.SESSION_NAME }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          GITHUB_TOKEN: ${{ secrets.GTOKEN }}
+          REPO: ${{ secrets.REPO }}
+          FILE_PATH: ${{ secrets.FILE_PATH }}
+          MODE_FILE_GITHUB: ${{ secrets.MODE_FILE_GITHUB }}
+          BRANCH: ${{ secrets.BRANCH }}
+        run: python message_fetcher.py
