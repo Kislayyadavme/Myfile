@@ -33,4 +33,4 @@ jobs:
           FILE_PATH: ${{ secrets.FILE_PATH }}
           MODE_FILE_GITHUB: ${{ secrets.MODE_FILE_GITHUB }}
           BRANCH: ${{ secrets.BRANCH }}
-        run: python message_fetcher.py
+        run: python main.py
