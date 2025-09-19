@@ -31,7 +31,7 @@ MODE_FILE_LOCAL = "mode.txt"
 
 def fetch_mode_from_github():
     url = f"https://api.github.com/repos/{REPO}/contents/{MODE_FILE_GITHUB}"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {GTOKEN}"}
     r = requests.get(url, headers=headers, params={"ref": BRANCH})
     if r.status_code == 200:
         data = r.json()
@@ -41,7 +41,7 @@ def fetch_mode_from_github():
 
 def update_mode_on_github(mode: str):
     url = f"https://api.github.com/repos/{REPO}/contents/{MODE_FILE_GITHUB}"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {GTOKEN}"}
     b64_content = base64.b64encode(mode.encode()).decode()
 
     payload = {
@@ -83,7 +83,7 @@ bot_client = TelegramClient("bot_session", API_ID, API_HASH).start(bot_token=BOT
 # ---------- GITHUB LOGGER ----------
 def update_github_file(new_text: str):
     url = f"https://api.github.com/repos/{REPO}/contents/{FILE_PATH}"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+    headers = {"Authorization": f"token {GTOKEN}"}
 
     r = requests.get(url, headers=headers, params={"ref": BRANCH})
     if r.status_code == 200:
