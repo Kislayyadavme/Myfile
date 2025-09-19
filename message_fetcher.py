@@ -12,7 +12,7 @@ from telethon import TelegramClient, events, Button
 # ---------- TELEGRAM CONFIG ----------
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
-SESSION_NAME = os.environ.get("SESSION_NAME", "user_session")
+SESSION_NAME = os.environ.get("SESSION_NAME", "my_session")
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 ADMIN_CHAT_ID = int(os.environ.get("ADMIN_CHAT_ID"))
