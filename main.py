@@ -5,6 +5,7 @@ message_fetcher.py (Improved Logging + GitHub Sync + Private Session Handling)
 import os
 import base64
 import asyncio
+from telethon.sessions import StringSession
 import requests
 from telethon import TelegramClient, events, Button
 
