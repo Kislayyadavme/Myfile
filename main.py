@@ -206,7 +206,9 @@ if __name__ == "__main__":
     try:
         asyncio.get_event_loop().run_until_complete(main())
     except KeyboardInterrupt:
-        print("🛑 Stopped by user.")    return None
+        print("🛑 Stopped by user.")
+        pass
+        
 
 def update_mode_on_github(mode: str):
     url = f"https://api.github.com/repos/{REPO}/contents/{MODE_FILE_GITHUB}"
