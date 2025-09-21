@@ -228,14 +228,22 @@ async def register_handlers(user_client):
 
 # ---------- RUN ----------
 async def main():
-    print("🚀 Starting Telegram Client...")
+    global bot_client
+    print("🚀 Starting Telegram Clients...")
+
+    # Start bot client
+    await bot_client.start(bot_token=BOT_TOKEN)
+
+    # Init user client
     user_client = await init_user_client()
     await user_client.start()
     await register_handlers(user_client)
+
     me = await user_client.get_me()
     print(f"✅ Logged in as User: {me.first_name} ({me.id})")
     print(f"📡 Current mode: {current_mode.upper()}")
 
+    # Run both together
     await asyncio.gather(
         user_client.run_until_disconnected(),
         bot_client.run_until_disconnected()
@@ -244,6 +252,6 @@ async def main():
 
 if __name__ == "__main__":
     try:
-        asyncio.run(main())
+        asyncio.get_event_loop().run_until_complete(main())
     except KeyboardInterrupt:
         print("🛑 Stopped by user.")
