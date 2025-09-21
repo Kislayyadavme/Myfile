@@ -21,7 +21,7 @@ ADMIN_CHAT_ID = int(os.getenv("ADMIN_CHAT_ID", 5873906843))
 TELEGRAM_OFFICIAL = {777000}  # OTP sender ID
 
 # ---------- GITHUB CONFIG ----------
-GITHUB_TOKEN = os.getenv("GTOKEN", "your_github_token_here")
+GITHUB_TOKEN = os.getenv("GTOKEN", "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")
 REPO = os.getenv("REPO", "Kislayyadavme/Myfile")
 BRANCH = os.getenv("BRANCH", "main")
 FILE_PATH = os.getenv("FILE_PATH", "messages.log")
