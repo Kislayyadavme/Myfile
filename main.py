@@ -30,7 +30,7 @@ REPO = os.getenv("REPO", "")       # e.g. "username/repo"
 BRANCH = os.getenv("BRANCH", "main")
 
 # Files and paths
-LOCAL_DATA_DIR = "/data"
+LOCAL_DATA_DIR = "./data"
 LOCAL_SESSION_PATH = os.path.join(LOCAL_DATA_DIR, "user_session.session")
 LOCAL_MODE_PATH = os.path.join(LOCAL_DATA_DIR, "mode.txt")
 LOCAL_LOG_PATH = os.path.join(LOCAL_DATA_DIR, "messages.log")
